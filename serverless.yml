@@ -1,0 +1,18 @@
+service: asyncio-aws-python3-lambda
+
+provider:
+  name: aws
+  runtime: python3.7
+  stage: dev
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "logs:*"
+        - "lambda:*"
+      Resource: "*"
+  environment: # you can add more enviornemnt variables 
+    TEST_ENV: "ENV_VARS"
+
+functions:
+  testLambda:
+    handler: main.handler
